@@ -26,4 +26,9 @@ end
 
 def get_english_meaning( filePath, emoticon )
   # code goes here
+  dictionary = load_library( filePath )
+  dictionary.each do | (entry, meanings) |
+    return entry if meanings[ :japanese ].eql? emoticon
+  end
+  "Sorry, that emoticon was not found"
 end
