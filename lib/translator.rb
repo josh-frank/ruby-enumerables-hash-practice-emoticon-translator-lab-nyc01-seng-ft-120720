@@ -19,7 +19,7 @@ def get_japanese_emoticon( filePath, emoticon )
   # code goes here
   dictionary = load_library( filePath )
   dictionary.each do | (entry, meanings) |
-    return meanings[ :english ] if meanings[ :japanese ] == emoticon
+    return meanings[ :english ] if meanings[ :japanese ].eql? emoticon
   end
   "Sorry, that emoticon was not found"
 end
